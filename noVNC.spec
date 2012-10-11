@@ -15,7 +15,6 @@ License:          LGPL v3 with exceptions
 Vendor:           Grid Dynamics Consulting Services, Inc.
 URL:              https://github.com/openstack/noVNC
 Source0:          %{name}-%{version}.tar.gz 
-Source1:          nova-novncproxy.init 
 
 Requires:         numpy
 
@@ -25,7 +24,7 @@ noVNC is a VNC client written using HTML5 (Web Sockets, Canvas) with encryption 
 
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 
 %build
@@ -44,7 +43,7 @@ for i in websocket.py wsproxy.py; do
 done
 
 install -p -D -m 755 utils/nova-novncproxy %{buildroot}/usr/bin/nova-novncproxy
-install -p -D -m 755 %{SOURCE1} %{buildroot}%{_initrddir}/nova-novncproxy
+install -p -D -m 755 redhat/nova-novncproxy.init %{buildroot}%{_initrddir}/nova-novncproxy
 
 
 %clean
