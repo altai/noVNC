@@ -17,6 +17,8 @@ URL:              https://github.com/openstack/noVNC
 Source0:          %{name}-%{version}.tar.gz 
 
 Requires:         numpy
+BuildRequires:    gcc
+BuildRequires:    make
 
 
 %description
